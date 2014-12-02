@@ -13,14 +13,12 @@ Chord::Chord(int* array, drumstick::rt::MIDIOutput* midiOutput)
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     timer->start(500);
 
-    int * zeigerT = 0;
-    int t = 6;
-    zeigerT = &t;
+    int t = 0;
 }
 
 void Chord::Strum(){
-
-    qDebug() << *zeigerT;
+    t = 0;
+    qDebug() << t;
     qDebug() << "Strumm";
     //for(int i = 0; i < 6; i++){
     //    midiOut->sendNoteOn(0, notes[i], 127);
@@ -36,7 +34,6 @@ void Chord::Pick(){
 
 void Chord::update(){
 
-    qDebug() << notes[t];
     qDebug() << "Update";
     if(t < 6){
          midiOut->sendNoteOn(0, notes[t], 127);

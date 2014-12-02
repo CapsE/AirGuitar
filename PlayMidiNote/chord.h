@@ -21,9 +21,7 @@ public slots:
 
 private:
   int* notes;
-  int* zeigerT;
   int t;
-  int* zeigerAufT;
   drumstick::rt::MIDIOutput* midiOut;
   QTimer timer;
 };
