@@ -16,12 +16,12 @@ public:
     void Pick();
 
 
-public slots:
+private slots:
     void update();
 
 private:
   int* notes;
-  int t;
+  int time;
   drumstick::rt::MIDIOutput* midiOut;
   QTimer timer;
 };

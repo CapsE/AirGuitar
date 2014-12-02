@@ -13,15 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     midiOutput.open("Microsoft GS Wavetable Synth");
     midichannel = ui->midichannel->value();
 
-    int notes[6] = {28,35,40,55,59,64};
-    Chord e(notes, &midiOutput);
-    e.Pick();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    //delete E;
 }
 
 void MainWindow::on_note_1_clicked(bool checked)
@@ -165,5 +161,7 @@ void MainWindow::on_program_valueChanged(int arg1)
 void MainWindow::on_testButton_clicked()
 {
     qDebug() << "TestButton clicked";
-    e.Strum();
+    int notes[6] = {28,35,40,55,59,64};
+    Chord *e = new Chord(notes, &midiOutput);
+    e->Strum();
 }

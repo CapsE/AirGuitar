@@ -49,7 +49,7 @@ private:
     Ui::MainWindow *ui;
     drumstick::rt::MIDIOutput midiOutput;
     int midichannel;
-    Chord e;
+    Chord *e;
 };
 
 #endif // MAINWINDOW_H
