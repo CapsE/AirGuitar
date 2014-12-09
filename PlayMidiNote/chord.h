@@ -10,18 +10,20 @@ class Chord : public QObject
 
 public:
     Chord();
-    Chord(int* array, drumstick::rt::MIDIOutput* midiOutput);
+    Chord(drumstick::rt::MIDIOutput* midiOutput);
+    Chord(QList<int> array, drumstick::rt::MIDIOutput* midiOutput);
 
-    void Strum();
+    void Strum(int speed, bool direction);
     void Pick();
-
+    void SetNotes(QList<int> notes);
 
 private slots:
     void update();
 
 private:
-  int* notes;
+  QList<int> notes;
   int time;
+  bool dir;
   drumstick::rt::MIDIOutput* midiOut;
   QTimer timer;
 };

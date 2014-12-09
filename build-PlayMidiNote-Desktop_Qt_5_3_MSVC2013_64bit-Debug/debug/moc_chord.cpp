@@ -51,7 +51,7 @@ static const uint qt_meta_data_Chord[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x0a /* Public */,
+       1,    0,   19,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,

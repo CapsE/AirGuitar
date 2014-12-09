@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="note_1">
+   <widget class="QPushButton" name="eChord">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -24,13 +24,13 @@
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>E</string>
     </property>
     <property name="checkable">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="note_2">
+   <widget class="QPushButton" name="fChord">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -40,103 +40,7 @@
      </rect>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_3">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_4">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_5">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_6">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_7">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_8">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
+     <string>F</string>
     </property>
     <property name="checkable">
      <bool>true</bool>
@@ -170,11 +74,14 @@
       <height>131</height>
      </rect>
     </property>
+    <property name="minimum">
+     <number>25</number>
+    </property>
     <property name="maximum">
-     <number>16383</number>
+     <number>475</number>
     </property>
     <property name="value">
-     <number>8192</number>
+     <number>400</number>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -242,7 +149,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Pitchbend</string>
+     <string>Speed</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
@@ -294,70 +201,6 @@
      <string>Program:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="note_9">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_10">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_11">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="note_12">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>190</y>
-      <width>16</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="testButton">
     <property name="geometry">
      <rect>
@@ -369,6 +212,35 @@
     </property>
     <property name="text">
      <string>TEST!</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testButton_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>230</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TEST!</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gChord">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>190</y>
+      <width>16</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>G</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
