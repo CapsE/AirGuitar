@@ -50,6 +50,15 @@ MainWindow::MainWindow(QWidget *parent) :
     notes.append(59);
     notes.append(67);
     gChord.SetNotes(notes);
+
+    notes.clear();
+    //A
+    notes.append(45);
+    notes.append(52);
+    notes.append(57);
+    notes.append(61);
+    notes.append(64);
+    aChord.SetNotes(notes);
 }
 
 MainWindow::~MainWindow()
@@ -65,7 +74,7 @@ void MainWindow::on_volume_valueChanged(int value)
 void MainWindow::on_pitchbend_valueChanged(int value)
 {
     //midiOutput.sendPitchBend(midichannel, value);
-    qDebug() << ui->pitchbend->value();
+
 }
 
 void MainWindow::on_midichannel_valueChanged(int arg1)
@@ -119,4 +128,9 @@ void MainWindow::on_fChord_clicked()
 void MainWindow::on_gChord_clicked()
 {
     gChord.Strum(ui->pitchbend->value(), true);
+}
+
+void MainWindow::on_aChord_clicked()
+{
+    aChord.Strum(ui->pitchbend->value(), true);
 }

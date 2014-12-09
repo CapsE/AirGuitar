@@ -40,6 +40,8 @@ private slots:
 
     void on_gChord_clicked();
 
+    void on_aChord_clicked();
+
 private:
     Ui::MainWindow *ui;
     drumstick::rt::MIDIOutput midiOutput;
