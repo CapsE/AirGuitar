@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QKeyEvent>
 #include "midioutput.h"
 #include "chord.h"
 
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void keyPressEvent(QKeyEvent *event);
     ~MainWindow();
 
 private slots:
@@ -54,6 +56,8 @@ private:
     Chord hChord;
     Chord cChord;
     Chord dChord;
+
+    Chord *chordToPlay;
 };
 
 #endif // MAINWINDOW_H

@@ -134,3 +134,21 @@ void MainWindow::on_aChord_clicked()
 {
     aChord.Strum(ui->pitchbend->value(), true);
 }
+
+void MainWindow::keyPressEvent(QKeyEvent *ev)
+{
+    qDebug() << ev->key();
+    if(ev->key() == 65){
+        chordToPlay = &eChord;
+    }else if(ev->key() == 83){
+        chordToPlay = &fChord;
+    }else if(ev->key() == 68){
+        chordToPlay = &gChord;
+    }else if(ev->key() == 70){
+        chordToPlay = &aChord;
+    }else if(ev->key() == 16777248){
+        chordToPlay->Strum(ui->pitchbend->value(), true);
+    }else if(ev->key() == 16777249){
+       chordToPlay->Strum(ui->pitchbend->value(), false);
+    }
+}
