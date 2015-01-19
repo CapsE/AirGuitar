@@ -5,6 +5,7 @@
 #include <QKeyEvent>
 #include "midioutput.h"
 #include "chord.h"
+#include "chordmanager.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,8 +22,6 @@ public:
 
 private slots:
     void on_volume_valueChanged(int value);
-
-    void on_pitchbend_valueChanged(int value);
 
     void on_midichannel_valueChanged(int arg1);
 
@@ -46,18 +45,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    drumstick::rt::MIDIOutput midiOutput;
-    int midichannel;
-    Chord *e;
-    Chord eChord;
-    Chord fChord;
-    Chord gChord;
-    Chord aChord;
-    Chord hChord;
-    Chord cChord;
-    Chord dChord;
-
     Chord *chordToPlay;
+    ChordManager chordManager;
 };
 
 #endif // MAINWINDOW_H

@@ -16,6 +16,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -47,6 +48,8 @@ public:
     QPushButton *testButton;
     QPushButton *testButton_2;
     QPushButton *gChord;
+    QPushButton *aChord;
+    QLineEdit *lineEdit;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -74,10 +77,10 @@ public:
         volume->setOrientation(Qt::Horizontal);
         pitchbend = new QSlider(centralWidget);
         pitchbend->setObjectName(QStringLiteral("pitchbend"));
-        pitchbend->setGeometry(QRect(300, 109, 22, 131));
-        pitchbend->setMinimum(25);
-        pitchbend->setMaximum(475);
-        pitchbend->setValue(400);
+        pitchbend->setGeometry(QRect(350, 80, 22, 131));
+        pitchbend->setMinimum(-100);
+        pitchbend->setMaximum(100);
+        pitchbend->setValue(75);
         pitchbend->setOrientation(Qt::Vertical);
         midichannel = new QSpinBox(centralWidget);
         midichannel->setObjectName(QStringLiteral("midichannel"));
@@ -94,7 +97,7 @@ public:
         label_3->setGeometry(QRect(40, 270, 46, 13));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(290, 80, 46, 13));
+        label_4->setGeometry(QRect(340, 50, 46, 13));
         comboBox = new QComboBox(centralWidget);
         comboBox->setObjectName(QStringLiteral("comboBox"));
         comboBox->setGeometry(QRect(150, 20, 181, 22));
@@ -118,6 +121,13 @@ public:
         gChord->setObjectName(QStringLiteral("gChord"));
         gChord->setGeometry(QRect(80, 190, 16, 23));
         gChord->setCheckable(true);
+        aChord = new QPushButton(centralWidget);
+        aChord->setObjectName(QStringLiteral("aChord"));
+        aChord->setGeometry(QRect(100, 190, 16, 23));
+        aChord->setCheckable(true);
+        lineEdit = new QLineEdit(centralWidget);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(230, 230, 113, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -149,6 +159,8 @@ public:
         testButton->setText(QApplication::translate("MainWindow", "TEST!", 0));
         testButton_2->setText(QApplication::translate("MainWindow", "TEST!", 0));
         gChord->setText(QApplication::translate("MainWindow", "G", 0));
+        aChord->setText(QApplication::translate("MainWindow", "A", 0));
+        lineEdit->setText(QApplication::translate("MainWindow", "E", 0));
     } // retranslateUi
 
 };

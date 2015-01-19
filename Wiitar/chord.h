@@ -13,9 +13,11 @@ public:
     Chord(drumstick::rt::MIDIOutput* midiOutput);
     Chord(QList<int> array, drumstick::rt::MIDIOutput* midiOutput);
 
-    void Strum(int speed, bool direction);
+    void Strum(float speed);
+    void Strum(float speed, int capo);
     void Pick();
     void SetNotes(QList<int> notes);
+    void SetInstrument(int channel);
 
 private slots:
     void update();
@@ -23,6 +25,8 @@ private slots:
 private:
   QList<int> notes;
   int time;
+  int instrument;
+  int capo;
   bool dir;
   drumstick::rt::MIDIOutput* midiOut;
   QTimer timer;

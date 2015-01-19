@@ -68,20 +68,20 @@
    <widget class="QSlider" name="pitchbend">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>109</y>
+      <x>350</x>
+      <y>80</y>
       <width>22</width>
       <height>131</height>
      </rect>
     </property>
     <property name="minimum">
-     <number>25</number>
+     <number>-100</number>
     </property>
     <property name="maximum">
-     <number>475</number>
+     <number>100</number>
     </property>
     <property name="value">
-     <number>400</number>
+     <number>75</number>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -142,8 +142,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>80</y>
+      <x>340</x>
+      <y>50</y>
       <width>46</width>
       <height>13</height>
      </rect>
@@ -257,6 +257,19 @@
     </property>
     <property name="checkable">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>230</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>E</string>
     </property>
    </widget>
   </widget>

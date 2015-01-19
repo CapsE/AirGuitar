@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    chord.cpp
+    chord.cpp \
+    chordmanager.cpp
 
 HEADERS  += mainwindow.h \
-    chord.h
+    chord.h \
+    chordmanager.h
 
 FORMS    += mainwindow.ui
 include(../drumstick/drumstick.pro)
