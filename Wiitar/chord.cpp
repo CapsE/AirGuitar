@@ -32,6 +32,7 @@ void Chord::SetNotes(QList<int> n){
 
 void Chord::Strum(float speed){
     qDebug() << speed;
+    volume = speed * 10;
     capo = 0;
     if(speed < 0){
         dir = false;
@@ -42,13 +43,19 @@ void Chord::Strum(float speed){
     time = 0;
     timer.stop();
     update();
+<<<<<<< HEAD
     qDebug() << 50 - speed*50;
     timer.start(50 - speed*50);
+=======
+    qDebug() << 100 - speed*100;
+    timer.start(100 - speed*100);
+>>>>>>> 4f3417322609fedd039b3bc645c9e72d850692d9
 
 }
 
 void Chord::Strum(float speed, int capot){
     qDebug() << speed;
+    volume = speed * 10;
     capo = capot;
     if(speed < 0){
         dir = false;
@@ -59,8 +66,13 @@ void Chord::Strum(float speed, int capot){
     time = 0;
     timer.stop();
     update();
+<<<<<<< HEAD
     qDebug() << 50 - speed*50;
     timer.start(50 - speed*50);
+=======
+    qDebug() << 100 - speed*100;
+    timer.start(100 - speed*100);
+>>>>>>> 4f3417322609fedd039b3bc645c9e72d850692d9
 
 }
 
@@ -73,11 +85,11 @@ void Chord::Pick(){
 void Chord::update(){
 
     if(time < notes.length() && time >= 0 && dir == true){
-         midiOut->sendNoteOn(instrument, notes[time] + capo, 127);
+         midiOut->sendNoteOn(instrument, notes[time] + capo, 127 + volume);
          time++;
     }
     if(time < notes.length() && time >= 0 && dir == false){
-         midiOut->sendNoteOn(instrument, notes[notes.length() -1 - time] + capo, 127);
+         midiOut->sendNoteOn(instrument, notes[notes.length() -1 - time] + capo, 127 + volume);
          time++;
     }
 
