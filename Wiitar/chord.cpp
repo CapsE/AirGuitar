@@ -74,17 +74,18 @@ void Chord::Pick(){
 void Chord::update(){
 
     if(time < notes.length() && time >= 0 && dir == true){
-         midiOut->sendNoteOn(instrument, notes[time] + capo, 90 + volume);
+         midiOut->sendNoteOn(0, notes[time] + capo, 90 + volume);
          time++;
     }
     if(time < notes.length() && time >= 0 && dir == false){
-         midiOut->sendNoteOn(instrument, notes[notes.length() -1 - time] + capo, 90 + volume);
+         midiOut->sendNoteOn(0, notes[notes.length() -1 - time] + capo, 90 + volume);
          time++;
     }
 
 }
 
-void Chord::SetInstrument(int channel){
-    instrument = channel;
+void Chord::SetInstrument(int instru){
+    instrument = instru;
+    midiOut->sendProgram(0, instru);
 }
 

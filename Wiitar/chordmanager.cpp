@@ -135,9 +135,9 @@ void ChordManager::Strum(QString chord, float speed){
     }
 }
 
-void ChordManager::SetInstrument(int channel){
+void ChordManager::SetInstrument(int instrument){
     foreach(Chord* c, chords.values()){
-        c->SetInstrument(channel);
+        c->SetInstrument(instrument);
     }
 }
 
