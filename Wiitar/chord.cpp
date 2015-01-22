@@ -32,7 +32,6 @@ void Chord::SetNotes(QList<int> n){
 
 void Chord::Strum(float speed){
     qDebug() << speed;
-    volume = speed * 30;
     capo = 0;
     if(speed < 0){
         dir = false;
@@ -40,6 +39,7 @@ void Chord::Strum(float speed){
     }else{
         dir = true;
     }
+    volume = speed * 30;
     time = 0;
     timer.stop();
     update();
@@ -49,7 +49,7 @@ void Chord::Strum(float speed){
 
 void Chord::Strum(float speed, int capot){
     qDebug() << speed;
-    volume = speed * 30;
+
     capo = capot;
     if(speed < 0){
         dir = false;
@@ -57,6 +57,7 @@ void Chord::Strum(float speed, int capot){
     }else{
         dir = true;
     }
+    volume = speed * 30;
     time = 0;
     timer.stop();
     update();
