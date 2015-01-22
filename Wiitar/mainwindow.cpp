@@ -45,9 +45,7 @@ void MainWindow::on_program_valueChanged(int arg1)
 void MainWindow::on_testButton_clicked()
 {
     qDebug() << "TestButton clicked";
-    QString a = ui->lineEdit->text();
-    float f = (float) ui->pitchbend->value() / 100;
-    chordManager.Strum(a, f);
+
 }
 
 void MainWindow::on_testButton_2_clicked()
@@ -64,7 +62,7 @@ void MainWindow::on_eChord_clicked()
 
 void MainWindow::on_fChord_clicked()
 {
-    chordManager.Strum("Em", 0.95f);
+    chordManager.Strum("F", 0.95f);
 }
 
 void MainWindow::on_gChord_clicked()
@@ -93,4 +91,52 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
 //    }else if(ev->key() == 16777249){
 //       chordToPlay->Strum(ui->pitchbend->value(), false);
 //    }
+}
+
+void MainWindow::on_oneUp_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->one->text(), f);
+}
+
+void MainWindow::on_oneDown_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->one->text(), f* -1);
+}
+
+void MainWindow::on_twoUp_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->two->text(), f);
+}
+
+void MainWindow::on_twoDown_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->two->text(), f* -1);
+}
+
+void MainWindow::on_threeUp_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->three->text(), f);
+}
+
+void MainWindow::on_threeDown_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->three->text(), f* -1);
+}
+
+void MainWindow::on_fourUp_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->four->text(), f);
+}
+
+void MainWindow::on_fourDown_clicked()
+{
+    float f = (float) ui->pitchbend->value() / 100;
+    chordManager.Strum(ui->four->text(), f* -1);
 }

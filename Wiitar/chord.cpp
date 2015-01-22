@@ -26,6 +26,12 @@ Chord::Chord(QList<int> array, drumstick::rt::MIDIOutput* midiOutput) : time(6),
     timer.setInterval(1000);
 }
 
+void Chord::setupStrings(){
+    strings = new QList<QList<int>>();
+    s = new QList<int>;
+    s.append(40);
+}
+
 void Chord::SetNotes(QList<int> n){
     notes = n;
 }
@@ -42,8 +48,8 @@ void Chord::Strum(float speed){
     time = 0;
     timer.stop();
     update();
-    qDebug() << 500 - speed*450;
-    timer.start(500 - speed*450);
+    qDebug() << 500 - speed*500;
+    timer.start(500 - speed*500);
 
 }
 
@@ -59,8 +65,8 @@ void Chord::Strum(float speed, int capot){
     time = 0;
     timer.stop();
     update();
-    qDebug() << 500 - speed*450;
-    timer.start(500 - speed*450);
+    qDebug() << 500 - speed*500;
+    timer.start(500 - speed*500);
 
 }
 

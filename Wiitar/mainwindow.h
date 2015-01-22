@@ -43,6 +43,22 @@ private slots:
 
     void on_aChord_clicked();
 
+    void on_oneUp_clicked();
+
+    void on_oneDown_clicked();
+
+    void on_twoUp_clicked();
+
+    void on_twoDown_clicked();
+
+    void on_threeUp_clicked();
+
+    void on_threeDown_clicked();
+
+    void on_fourUp_clicked();
+
+    void on_fourDown_clicked();
+
 private:
     Ui::MainWindow *ui;
     Chord *chordToPlay;
