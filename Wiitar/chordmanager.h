@@ -15,6 +15,7 @@ public:
     void SetInstrument(int channel);
     void SetMidiMapper(QString mapper);
     QStringList GetMidiMappers();
+    void Silence();
 
 private:
     Chord eChord;

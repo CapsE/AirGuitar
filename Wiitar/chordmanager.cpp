@@ -153,3 +153,9 @@ void ChordManager::SetCapo(int amount){
 QStringList ChordManager::GetMidiMappers(){
     return midiOutput.connections(true);
 }
+
+void ChordManager::Silence(){
+    for(int i = 40; i < 70; i++){
+        midiOutput.sendNoteOff(0, i, 128);
+    }
+}

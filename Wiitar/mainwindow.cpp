@@ -26,6 +26,7 @@ MainWindow::~MainWindow()
 void MainWindow::receiveStrum(float strength)
 {
     qDebug() << "Received Strum:" << strength;
+    chordManager.Silence();
     QString chordString;
     if (currentChord == 0)
     {
@@ -48,6 +49,7 @@ void MainWindow::receiveStrum(float strength)
 
 void MainWindow::receiveChord(float direction)
 {
+    chordManager.Silence();
     currentChord += direction;
     if (currentChord < 0)
     {
