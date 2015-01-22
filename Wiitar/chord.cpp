@@ -43,14 +43,8 @@ void Chord::Strum(float speed){
     time = 0;
     timer.stop();
     update();
-<<<<<<< HEAD
-    qDebug() << 50 - speed*50;
-    timer.start(50 - speed*50);
-=======
     qDebug() << 100 - speed*100;
     timer.start(100 - speed*100);
->>>>>>> 4f3417322609fedd039b3bc645c9e72d850692d9
-
 }
 
 void Chord::Strum(float speed, int capot){
@@ -66,13 +60,8 @@ void Chord::Strum(float speed, int capot){
     time = 0;
     timer.stop();
     update();
-<<<<<<< HEAD
-    qDebug() << 50 - speed*50;
-    timer.start(50 - speed*50);
-=======
     qDebug() << 100 - speed*100;
     timer.start(100 - speed*100);
->>>>>>> 4f3417322609fedd039b3bc645c9e72d850692d9
 
 }
 
