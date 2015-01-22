@@ -22,6 +22,10 @@ public:
     ~MainWindow();
 
 private slots:
+    void receiveStrum(float);
+
+    void receiveChord(float);
+
     void on_volume_valueChanged(int value);
 
     void on_midichannel_valueChanged(int arg1);
@@ -64,6 +68,7 @@ private:
     WiiAnalyser *analyser;
     Ui::MainWindow *ui;
     ChordManager chordManager;
+    int currentChord = 0;
 };
 
 #endif // MAINWINDOW_H

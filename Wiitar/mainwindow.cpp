@@ -13,13 +13,51 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QStringList connections = chordManager.GetMidiMappers();
     ui->comboBox->addItems(connections);
-
+    connect(analyser, SIGNAL(sendStrum(float)), this, SLOT(receiveStrum(float)));
+    connect(analyser, SIGNAL(sendChord(float)), this, SLOT(receiveChord(float)));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete analyser;
+}
+
+void MainWindow::receiveStrum(float strength)
+{
+    qDebug() << "Received Strum:" << strength;
+    QString chordString;
+    if (currentChord == 0)
+    {
+        chordString = ui->one->text();
+    }
+    if (currentChord == 1)
+    {
+        chordString = ui->two->text();
+    }
+    if (currentChord == 2)
+    {
+        chordString = ui->three->text();
+    }
+    if (currentChord == 3)
+    {
+        chordString = ui->four->text();
+    }
+    chordManager.Strum(chordString, strength);
+}
+
+void MainWindow::receiveChord(float direction)
+{
+    currentChord += direction;
+    if (currentChord < 0)
+    {
+        currentChord = 0;
+    }
+    if (currentChord > 3)
+    {
+        currentChord = 3;
+    }
+    qDebug() << "Chord Index:" << currentChord << "Direction:" << direction;
 }
 
 void MainWindow::on_volume_valueChanged(int value)

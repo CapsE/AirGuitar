@@ -42,8 +42,8 @@ void Chord::Strum(float speed){
     time = 0;
     timer.stop();
     update();
-    qDebug() << 500 - speed*500;
-    timer.start(500 - speed*500);
+    qDebug() << 50 - speed*50;
+    timer.start(50 - speed*50);
 
 }
 
@@ -59,8 +59,8 @@ void Chord::Strum(float speed, int capot){
     time = 0;
     timer.stop();
     update();
-    qDebug() << 500 - speed*500;
-    timer.start(500 - speed*500);
+    qDebug() << 50 - speed*50;
+    timer.start(50 - speed*50);
 
 }
 
