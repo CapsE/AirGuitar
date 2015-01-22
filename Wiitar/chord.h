@@ -28,6 +28,7 @@ private:
   int instrument;
   int capo;
   bool dir;
+  float volume;
   drumstick::rt::MIDIOutput* midiOut;
   QTimer timer;
 };
