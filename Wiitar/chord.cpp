@@ -74,11 +74,11 @@ void Chord::Pick(){
 void Chord::update(){
 
     if(time < notes.length() && time >= 0 && dir == true){
-         midiOut->sendNoteOn(instrument, notes[time] + capo, 127 + volume);
+         midiOut->sendNoteOn(instrument, notes[time] + capo, 117 + volume);
          time++;
     }
     if(time < notes.length() && time >= 0 && dir == false){
-         midiOut->sendNoteOn(instrument, notes[notes.length() -1 - time] + capo, 127 + volume);
+         midiOut->sendNoteOn(instrument, notes[notes.length() -1 - time] + capo, 117 + volume);
          time++;
     }
 
