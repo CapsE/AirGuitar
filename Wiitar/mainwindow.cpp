@@ -7,6 +7,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     chordManager(),
+    analyser(new WiiAnalyser),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -18,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete analyser;
 }
 
 void MainWindow::on_volume_valueChanged(int value)

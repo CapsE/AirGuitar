@@ -15,11 +15,19 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     chord.cpp \
-    chordmanager.cpp
+    chordmanager.cpp \
+    wiiyourself/wiimote.cpp \
+    WiiAnalyser.cpp \
+    WiimoteThread.cpp
 
 HEADERS  += mainwindow.h \
     chord.h \
-    chordmanager.h
+    chordmanager.h \
+    wiiyourself/wiimote.h \
+    wiiyourself/wiimote_common.h \
+    wiiyourself/wiimote_state.h \
+    WiiAnalyser.h \
+    WiimoteThread.h
 
 FORMS    += mainwindow.ui
 include(../drumstick/drumstick.pro)

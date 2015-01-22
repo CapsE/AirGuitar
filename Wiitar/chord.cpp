@@ -26,12 +26,6 @@ Chord::Chord(QList<int> array, drumstick::rt::MIDIOutput* midiOutput) : time(6),
     timer.setInterval(1000);
 }
 
-void Chord::setupStrings(){
-    strings = new QList<QList<int>>();
-    s = new QList<int>;
-    s.append(40);
-}
-
 void Chord::SetNotes(QList<int> n){
     notes = n;
 }

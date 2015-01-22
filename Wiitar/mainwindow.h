@@ -3,9 +3,10 @@
 
 #include <QMainWindow>
 #include <QKeyEvent>
-#include "midioutput.h"
 #include "chord.h"
+#include "midioutput.h"
 #include "chordmanager.h"
+#include "WiiAnalyser.h"
 
 namespace Ui {
 class MainWindow;
@@ -60,8 +61,8 @@ private slots:
     void on_fourDown_clicked();
 
 private:
+    WiiAnalyser *analyser;
     Ui::MainWindow *ui;
-    Chord *chordToPlay;
     ChordManager chordManager;
 };
 
