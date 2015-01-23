@@ -17,7 +17,7 @@ public:
     void Strum(float speed, int capo);
     void Pick();
     void SetNotes(QList<int> notes);
-    void SetInstrument(int channel);
+    void SetInstrument(int instrument);
 
 private slots:
     void update();

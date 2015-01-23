@@ -2,6 +2,7 @@
 #include "chord.h"
 #include <QDebug>
 
+//Initialisiert den Chordmanager und erstellt alle 7 Akkorde in Dur und Moll
 ChordManager::ChordManager() :
     eChord(&midiOutput),
     emChord(&midiOutput),
@@ -118,6 +119,7 @@ ChordManager::ChordManager() :
     chords.insert("Dm", &dmChord);
 }
 
+//Sucht den zu spielenden Akkord und ruft bei ihm die Strum-Methode auf.
 void ChordManager::Strum(QString chord, float speed){
     QString sign = chord.mid(1,1);
     Chord* c;
@@ -135,25 +137,30 @@ void ChordManager::Strum(QString chord, float speed){
     }
 }
 
+//Ändert das Instrument für alle Akkorde
 void ChordManager::SetInstrument(int instrument){
     foreach(Chord* c, chords.values()){
         c->SetInstrument(instrument);
     }
 }
 
+//Wechselt das Zielprogramm zum abspielen der Midi sounds.
 void ChordManager::SetMidiMapper(QString mapper){
     midiOutput.close();
     midiOutput.open(mapper);
 }
 
+//Nicht implementiert. Könnte verwedet werden um alle Akkorde anzuheben oder abzusenken
 void ChordManager::SetCapo(int amount){
 
 }
 
+//Gibt eine Liste von verfügbaren Programme zur Midi-Wiedergabe zurück. Kann verwendet werden um diese in der UI anzuzeigen.
 QStringList ChordManager::GetMidiMappers(){
     return midiOutput.connections(true);
 }
 
+//Beendet sofort alle Noten. Ist insbesondere für Instrumente wie Orgeln erforderlich die nicht automatisch den Ton beeden.
 void ChordManager::Silence(){
     for(int i = 40; i < 70; i++){
         midiOutput.sendNoteOff(0, i, 128);
