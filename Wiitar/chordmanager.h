@@ -12,10 +12,11 @@ public:
     ChordManager();
     void Strum(QString chord, float speed);
     void SetCapo(int amount);
-    void SetInstrument(int channel);
+    void SetInstrument(int instrument);
     void SetMidiMapper(QString mapper);
     QStringList GetMidiMappers();
     void Silence();
+    QHash<QString, Chord*> getChords();
 
 private:
     Chord eChord;
