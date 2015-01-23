@@ -16,6 +16,7 @@ public:
     void SetMidiMapper(QString mapper);
     QStringList GetMidiMappers();
     void Silence();
+    QHash<QString, Chord*> getChords();
 
 private:
     Chord eChord;

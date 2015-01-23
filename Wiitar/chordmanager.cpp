@@ -159,3 +159,7 @@ void ChordManager::Silence(){
         midiOutput.sendNoteOff(0, i, 128);
     }
 }
+
+QHash<QString, Chord*> ChordManager::getChords(){
+    return chords;
+}

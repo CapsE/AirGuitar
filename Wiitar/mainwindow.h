@@ -3,9 +3,9 @@
 
 #include <QMainWindow>
 #include <QTimer>
-#include "dragwidget.h"
-#include "output/chordmanager.h"
-#include "output/chord.h"
+#include "interface/dragwidget.h"
+#include "chordmanager.h"
+#include "chord.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,7 +18,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    QLabel logo;
+    QLabel* logo;
 
 
 public slots:
