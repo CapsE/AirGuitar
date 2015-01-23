@@ -18,10 +18,7 @@ SOURCES += main.cpp\
     chordmanager.cpp \
     wiiyourself/wiimote.cpp \
     WiiAnalyser.cpp \
-    WiimoteThread.cpp \
-    interface/accord.cpp \
-    interface/dragwidget.cpp \
-    interface/selection.cpp
+    WiimoteThread.cpp
 
 HEADERS  += mainwindow.h \
     chord.h \
@@ -30,10 +27,7 @@ HEADERS  += mainwindow.h \
     wiiyourself/wiimote_common.h \
     wiiyourself/wiimote_state.h \
     WiiAnalyser.h \
-    WiimoteThread.h \
-    interface/accord.h \
-    interface/dragwidget.h \
-    interface/selection.h
+    WiimoteThread.h
 
 FORMS    += mainwindow.ui
 include(../drumstick/drumstick.pro)
