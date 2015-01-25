@@ -51,7 +51,7 @@ void MainWindow::receiveStrum(float strength)
         chordString = dragWidget->selection3->getAccord()->getChord();
         qDebug()<<chordString;
     }
-    chordManager->Strum(chordString, 0.95f);
+    chordManager->Strum(chordString, strength);
 }
 
 void MainWindow::receiveChord(float direction)
@@ -66,7 +66,10 @@ void MainWindow::receiveChord(float direction)
     {
         currentChord = 3;
     }
+
+    dragWidget->highlightSelection(currentChord);
     qDebug() << "Chord Index:" << currentChord << "Direction:" << direction;
+    qDebug() << "Slot:" << currentChord;
 }
 
 //void MainWindow::on_volume_valueChanged(int value)

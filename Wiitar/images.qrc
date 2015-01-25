@@ -1,9 +1,5 @@
 <RCC>
     <qresource prefix="/assets">
-        <file>images/accord0selected.png</file>
-        <file>images/accord1selected.png</file>
-        <file>images/accord2selected.png</file>
-        <file>images/accord3selected.png</file>
         <file>images/accordSelective.png</file>
         <file>images/accordSelective2.png</file>
         <file>images/akkordA.png</file>
@@ -24,8 +20,13 @@
         <file>images/guitarStrings.png</file>
         <file>images/slot0.png</file>
         <file>images/slot1.png</file>
+        <file>images/upButton.png</file>
         <file>images/slot2.png</file>
         <file>images/slot3.png</file>
-        <file>images/upButton.png</file>
+        <file>images/slot0selected.png</file>
+        <file>images/slot2selected.png</file>
+        <file>images/slot3selected.png</file>
+        <file>images/unselected.png</file>
+        <file>images/slot1selected.png</file>
     </qresource>
 </RCC>

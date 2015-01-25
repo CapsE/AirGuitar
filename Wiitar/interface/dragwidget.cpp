@@ -16,28 +16,9 @@ DragWidget::DragWidget(QWidget *parent, ChordManager *chordManager) :
    // setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
 
-
-
-
-    selectedAccord0 = new QLabel(this);
-    selectedAccord0->setPixmap(QPixmap(":assets/images/accord0selected.png"));
-    selectedAccord0->move(QPoint(192,128));
-    selectedAccord0->show();
-
-    selectedAccord1 = new QLabel(this);
-    selectedAccord1->setPixmap(QPixmap(":assets/images/accord1selected.png"));
-    selectedAccord1->move(QPoint(448,128));
-    selectedAccord1->show();
-
-    selectedAccord2 = new QLabel(this);
-    selectedAccord2->setPixmap(QPixmap(":assets/images/accord2selected.png"));
-    selectedAccord2->move(QPoint(704,128));
-    selectedAccord2->show();
-
-    selectedAccord3 = new QLabel(this);
-    selectedAccord3->setPixmap(QPixmap(":assets/images/accord3selected.png"));
-    selectedAccord3->move(QPoint(960,128));
-    selectedAccord3->show();
+    loadSelectedSlots();
+    loadSelections();
+    loadUnselects();
 
     guitarStrings = new QLabel(this);
     guitarStrings->setPixmap(QPixmap(":assets/images/guitarStrings.png"));
@@ -51,38 +32,9 @@ DragWidget::DragWidget(QWidget *parent, ChordManager *chordManager) :
     chordTable->move(QPoint(92,256));
     chordTable->show();
 
-
-
-    selection0 = new Selection(this, 0,QPoint(224, 160));
-    selections[0] = selection0;
-    selection1 = new Selection(this, 1,QPoint(480, 160));
-    selections[1] = selection1;
-    selection2 = new Selection(this, 2, QPoint(992, 160));
-    selections[2] = selection2;
-    selection3 = new Selection(this, 3, QPoint(736, 160));
-    selections[3] = selection3;
-
-
-
-    akkordA = new Accord(this, "A",QPoint(256,310));
-    akkordH = new Accord(this, "H", QPoint(384, 310));
-    akkordC = new Accord(this, "C", QPoint(512, 310));
-    akkordD = new Accord(this, "D", QPoint(640, 310));
-    akkordE = new Accord(this, "E", QPoint(768, 310));
-    akkordF = new Accord(this, "F", QPoint(896, 310));
-    akkordG = new Accord(this, "G", QPoint(1024, 310));
-
-    akkords[0] = akkordA;
-    akkords[1] = akkordH;
-    akkords[2] = akkordC;
-    akkords[3] = akkordD;
-    akkords[4] = akkordE;
-    akkords[5] = akkordF;
-    akkords[6] = akkordG;
+    loadAccords();
 
     tableIsDown = false;
-
-    //selection0->setAccord(akkordA);
 
 }
 
@@ -125,14 +77,22 @@ void DragWidget::dropEvent(QDropEvent *event)
 
          // Check auf was gedroppt wurde
          QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
+
          if (dynamic_cast<Selection*>(child) == NULL && dynamic_cast<Accord*>(child) == NULL){
              draggedAkkord->move(draggedAkkord->getStartPos());
              if(draggedAkkord->isSelected()){
                  draggedAkkord->setSelected(false);
-                   getSelection(draggedAkkord)->setAccord(NULL);
+                 getSelection(draggedAkkord)->setAccord(NULL);
                 }
+
+             if(tableIsDown){
+                moveChordTable();
+             }
              return;
          }
+
+
+
 
          QPixmap pixmap;
          QPoint offset;
@@ -268,4 +228,110 @@ void DragWidget::moveChordTable(){
         tableIsDown = true;
         button->setButton(tableIsDown);
     }
+}
+
+void DragWidget::highlightSelection(int slot){
+
+    unselects[slot]->hide();
+
+    for(int i; i < 4; i++){
+        if (i != slot){
+           unselects[i]->show();
+        }
+    }
+
+    qDebug() << "BIn in der Methode";
+}
+
+void DragWidget::loadAccords(){
+
+    akkordA = new Accord(this, "A",QPoint(256,310));
+    akkordH = new Accord(this, "H", QPoint(384, 310));
+    akkordC = new Accord(this, "C", QPoint(512, 310));
+    akkordD = new Accord(this, "D", QPoint(640, 310));
+    akkordE = new Accord(this, "E", QPoint(768, 310));
+    akkordF = new Accord(this, "F", QPoint(896, 310));
+    akkordG = new Accord(this, "G", QPoint(1024, 310));
+
+    akkords[0] = akkordA;
+    akkords[1] = akkordH;
+    akkords[2] = akkordC;
+    akkords[3] = akkordD;
+    akkords[4] = akkordE;
+    akkords[5] = akkordF;
+    akkords[6] = akkordG;
+}
+
+void DragWidget::loadSelections(){
+
+    selection0 = new Selection(this, 0,QPoint(224, 160));
+    selections[0] = selection0;
+    selection1 = new Selection(this, 1,QPoint(480, 160));
+    selections[1] = selection1;
+    selection2 = new Selection(this, 2, QPoint(736, 160));
+    selections[2] = selection2;
+    selection3 = new Selection(this, 3, QPoint(992, 160));
+    selections[3] = selection3;
+
+}
+
+void DragWidget::loadSelectedSlots(){
+
+    selectedSlot0 = new QLabel(this);
+    selectedSlot0->setPixmap(QPixmap(":assets/images/slot0selected.png"));
+    selectedSlot0->move(QPoint(192,128));
+    selectedSlot0->show();
+
+    selectedSlots[0] = selectedSlot0;
+
+    selectedSlot1 = new QLabel(this);
+    selectedSlot1->setPixmap(QPixmap(":assets/images/slot1selected.png"));
+    selectedSlot1->move(QPoint(448,128));
+    selectedSlot1->show();
+
+    selectedSlots[1] = selectedSlot1;
+
+    selectedSlot2 = new QLabel(this);
+    selectedSlot2->setPixmap(QPixmap(":assets/images/slot2selected.png"));
+    selectedSlot2->move(QPoint(704,128));
+    selectedSlot2->show();
+
+    selectedSlots[2] = selectedSlot2;
+
+    selectedSlot3 = new QLabel(this);
+    selectedSlot3->setPixmap(QPixmap(":assets/images/slot3selected.png"));
+    selectedSlot3->move(QPoint(960,128));
+    selectedSlot3->show();
+
+    selectedSlots[3] = selectedSlot3;
+}
+
+void DragWidget::loadUnselects(){
+    unselect0 = new QLabel(this);
+    unselect0->setPixmap(QPixmap(":assets/images/unselected.png"));
+    unselect0->move(selectedSlot0->pos());
+    unselect0->hide();
+
+    unselects[0] = unselect0;
+
+    unselect1 = new QLabel(this);
+    unselect1->setPixmap(QPixmap(":assets/images/unselected.png"));
+    unselect1->move(selectedSlot1->pos());
+    unselect1->hide();
+
+    unselects[1] = unselect1;
+
+    unselect2 = new QLabel(this);
+    unselect2->setPixmap(QPixmap(":assets/images/unselected.png"));
+    unselect2->move(selectedSlot2->pos());
+    unselect2->hide();
+
+    unselects[2] = unselect2;
+
+    unselect3 = new QLabel(this);
+    unselect3->setPixmap(QPixmap(":assets/images/unselected.png"));
+    unselect3->move(selectedSlot3->pos());
+    unselect3->hide();
+
+    unselects[3] = unselect3;
 }
