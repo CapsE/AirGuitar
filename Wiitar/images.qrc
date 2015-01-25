@@ -1,9 +1,31 @@
 <RCC>
-    <qresource prefix="/new/prefix1">
-        <file>images/akkord1.png</file>
-        <file>images/akkord2.png</file>
-        <file>images/akkord3.png</file>
-        <file>images/akkord4.png</file>
-        <file>images/slot.png</file>
+    <qresource prefix="/assets">
+        <file>images/accord0selected.png</file>
+        <file>images/accord1selected.png</file>
+        <file>images/accord2selected.png</file>
+        <file>images/accord3selected.png</file>
+        <file>images/accordSelective.png</file>
+        <file>images/accordSelective2.png</file>
+        <file>images/akkordA.png</file>
+        <file>images/akkordAselected.png</file>
+        <file>images/akkordC.png</file>
+        <file>images/akkordCselected.png</file>
+        <file>images/akkordD.png</file>
+        <file>images/akkordDselected.png</file>
+        <file>images/akkordE.png</file>
+        <file>images/akkordEselected.png</file>
+        <file>images/akkordF.png</file>
+        <file>images/akkordFselected.png</file>
+        <file>images/akkordG.png</file>
+        <file>images/akkordGselected.png</file>
+        <file>images/akkordH.png</file>
+        <file>images/akkordHselected.png</file>
+        <file>images/downButton.png</file>
+        <file>images/guitarStrings.png</file>
+        <file>images/slot0.png</file>
+        <file>images/slot1.png</file>
+        <file>images/slot2.png</file>
+        <file>images/slot3.png</file>
+        <file>images/upButton.png</file>
     </qresource>
 </RCC>

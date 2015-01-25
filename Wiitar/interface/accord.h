@@ -2,8 +2,6 @@
 #define ACCORD_H
 
 #include <QLabel>
-#include "../chord.h"
-#include "../chordmanager.h"
 
 class Accord : public QLabel
 {
@@ -14,13 +12,13 @@ public:
     void setSelected(bool selection);
     QPoint getStartPos();
     void setStartPos(QPoint start);
-    Chord chord;
+    QString getChord();
 signals:
 
 private:
     bool selected;
     QPoint startPos;
-
+    QString chord;
 public slots:
 
 };

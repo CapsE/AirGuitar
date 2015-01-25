@@ -1,28 +1,25 @@
 #include "accord.h"
-#include "../chordmanager.h"
 
 Accord::Accord(QWidget *parent, QString chord, QPoint start) :
     QLabel(parent)
 {
-    ChordManager* chordmanager = new ChordManager();
     selected = false;
-    setPixmap(QPixmap(":/images/akkord" + chord +".png"));
-    QHash<QString, Chord*> chords = chordmanager->getChords();
-    QHash<QString, Chord*>::iterator i;
-     for (i = chords.begin(); i != chords.end(); ++i){
-        if(i.key() == chord){
-            //this->chord = i.key();
-        }
-     }
+    setPixmap(QPixmap(":assets/images/akkord" + chord + ".png"));
     startPos = start;
     move(startPos);
     show();
     setAttribute(Qt::WA_DeleteOnClose);
+    this->chord = chord;
 
 }
 
 void Accord::setSelected(bool selection){
 
+    if(selection){
+        setPixmap(QPixmap(":assets/images/akkord" + chord + "selected.png"));
+    }else{
+        setPixmap(QPixmap(":assets/images/akkord" + chord + ".png"));
+    }
     selected = selection;
 }
 
@@ -37,5 +34,9 @@ void Accord::setStartPos(QPoint start){
 
 QPoint Accord::getStartPos(){
     return startPos;
+}
+
+QString Accord::getChord(){
+    return chord;
 }
 
