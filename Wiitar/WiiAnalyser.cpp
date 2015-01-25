@@ -113,16 +113,16 @@ void WiiAnalyser::checkForChord(wiiinfo *info, double millisecondsElapsed)
 
     // Intgrate acceleration for velocity
     // Integrate velocity for position
-    for (int i = millisecondsElapsed; i > 0; i--)
-    {
-		// TODO: Check if this is accurate enough
-        velocityR = velocityR + filteredAccR +
-                ((lastFilteredAccR - filteredAccR) / 2);
-        positionR = positionR + velocityR +
-                (lastVelocityR - velocityR) / 2;
-    }
-    lastFilteredAccR = filteredAccR;
-    lastVelocityR = velocityR;
+//    for (int i = millisecondsElapsed; i > 0; i--)
+//    {
+//		// TODO: Check if this is accurate enough
+//        velocityR = velocityR + filteredAccR +
+//                ((lastFilteredAccR - filteredAccR) / 2);
+//        positionR = positionR + velocityR +
+//                (lastVelocityR - velocityR) / 2;
+//    }
+//    lastFilteredAccR = filteredAccR;
+//    lastVelocityR = velocityR;
 
     // Reset on button press:
     if (lowPass(mainButton, 3, 0) > 0)
@@ -134,13 +134,15 @@ void WiiAnalyser::checkForChord(wiiinfo *info, double millisecondsElapsed)
     else
     {
         // Check for chord change condition
-        if (positionR < -POSITION_THRESHOLD_R && !emitedChord)
+//        if (positionR < -POSITION_THRESHOLD_R && !emitedChord)
+        if (filteredAccR < 0 && !emitedChord)
         {
             emit sendChord(-1);
             emitedChord = true;
 			rumbleTimer = RUMBLE_TIME;
         }
-        if (positionR > POSITION_THRESHOLD_R && !emitedChord)
+//        if (positionR > POSITION_THRESHOLD_R && !emitedChord)
+        if (filteredAccR > 0 && !emitedChord)
         {
             emit sendChord(1);
             emitedChord = true;
