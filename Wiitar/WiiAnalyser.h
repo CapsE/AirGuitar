@@ -22,6 +22,7 @@ public:
 	WiiAnalyser();
 	~WiiAnalyser();
 	bool isConnected();
+    void lightLED(int);
 
 private:
 	WiimoteThread *wiiThread;

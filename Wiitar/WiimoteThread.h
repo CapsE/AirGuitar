@@ -24,6 +24,7 @@ class WiimoteThread : public QThread
 		WiimoteThread();
 		~WiimoteThread();
 		void doRumble(bool);
+        void lightLED(int);
 
 	protected:
 		void run() Q_DECL_OVERRIDE;

@@ -16,6 +16,12 @@ void WiimoteThread::doRumble(bool rumble)
 	remote->SetRumble(rumble);
 }
 
+void WiimoteThread::lightLED(int LEDindex)
+{
+    remote->SetLEDs(0x08 >> LEDindex);
+    qDebug() << LEDindex;
+}
+
 void WiimoteThread::run()
 {
 	qDebug() << "Looking for Wiimote";

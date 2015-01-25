@@ -26,6 +26,18 @@ WiiAnalyser::~WiiAnalyser()
     delete qTimer;
 }
 
+void WiiAnalyser::lightLED(int LEDindex)
+{
+    if (LEDindex <= 3 && LEDindex >= 0)
+    {
+        wiiThread->lightLED(LEDindex);
+    }
+    else
+    {
+        qDebug() << "LED index out of bounds.";
+    }
+}
+
 void WiiAnalyser::receiveConnect()
 {
 	emit sendConnect();
