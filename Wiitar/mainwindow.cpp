@@ -69,8 +69,7 @@ void MainWindow::receiveChord(float direction)
     analyser->lightLED(currentChord);
 
     dragWidget->highlightSelection(currentChord);
-    qDebug() << "Chord Index:" << currentChord << "Direction:" << direction;
-    qDebug() << "Slot:" << currentChord;
+    qDebug() << "Slot:" << currentChord << "Direction:" << direction;
 }
 
 //void MainWindow::on_volume_valueChanged(int value)

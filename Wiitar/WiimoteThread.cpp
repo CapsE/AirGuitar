@@ -19,7 +19,6 @@ void WiimoteThread::doRumble(bool rumble)
 void WiimoteThread::lightLED(int LEDindex)
 {
     remote->SetLEDs(0x08 >> LEDindex);
-    qDebug() << LEDindex;
 }
 
 void WiimoteThread::run()
