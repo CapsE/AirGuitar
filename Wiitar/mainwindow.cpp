@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     chordManager = new ChordManager();
-    chordManager->SetMidiMapper("CoolSoft VirtualMIDISynth");
+    chordManager->SetMidiMapper("Microsoft GS Wavetable Synth");
     chordManager->SetInstrument(27);
     dragWidget = new DragWidget(this, chordManager);
 
