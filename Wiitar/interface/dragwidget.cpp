@@ -211,6 +211,9 @@ void DragWidget::moveChordTable(){
         chordTable->move(QPoint(92, 256));
         tableIsDown = false;
         button->setButton(tableIsDown);
+        for(int i=0; i < 4; i++){
+            unselects[i]->hide();
+        }
 
     }else{
         for(int i=0; i < 14; i++){
