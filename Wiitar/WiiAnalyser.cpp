@@ -217,26 +217,33 @@ void WiiAnalyser::checkForStrum(wiiinfo *info)
 	{
 		if (filteredAccN > 0)
 		{
-			if (lastStateN == -1)
-			{
-				float emitValue = (lastPeakN + MIN_STRUM_FORCE) /
-								(MAX_STRUM_FORCE - MIN_STRUM_FORCE);
-				emitValue = emitValue < -1 ? -1 : emitValue;
-				emit sendStrum(emitValue);
-			}
 			lastStateN = 1;
 		}
 		else if (filteredAccN < 0)
 		{
-			if (lastStateN == 1)
-			{
-				float emitValue = (lastPeakN - MIN_STRUM_FORCE) /
-					(MAX_STRUM_FORCE - MIN_STRUM_FORCE);
-				emitValue = emitValue > 1 ? 1 : emitValue;
-				emit sendStrum(emitValue);
-			}
 			lastStateN = -1;
 		}
+        else
+        {
+            if (lastStateN != 0)
+            {
+                float emitValue;
+                if (lastStateN == -1)
+                {
+                    emitValue = (lastPeakN + MIN_STRUM_FORCE) /
+                                    (MAX_STRUM_FORCE - MIN_STRUM_FORCE);
+                    emitValue = emitValue < -1 ? -1 : emitValue;
+                }
+                else if (lastStateN == 1)
+                {
+                    emitValue = (lastPeakN - MIN_STRUM_FORCE) /
+                                    (MAX_STRUM_FORCE - MIN_STRUM_FORCE);
+                    emitValue = emitValue > 1 ? 1 : emitValue;
+                }
+                emit sendStrum(emitValue);
+                lastStateN = 0;
+            }
+        }
 	}
 	else if (lowPass(nunButton, 3, 0) == 0)
 	{

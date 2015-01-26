@@ -10,9 +10,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     chordManager = new ChordManager();
     chordManager->SetMidiMapper("Microsoft GS Wavetable Synth");
+<<<<<<< HEAD
     chordManager->SetInstrument(25);
 //    chordManager->SetMidiMapper("CoolSoft VirtualMIDISynth");
 //    chordManager->SetInstrument(27);
+=======
+    chordManager->SetInstrument(27);
+>>>>>>> origin/master
     dragWidget = new DragWidget(this, chordManager);
 
 //    QStringList connections = chordManager.GetMidiMappers();
