@@ -107,11 +107,9 @@ void DragWidget::dropEvent(QDropEvent *event)
              selection->setAccord(draggedAkkord);
          //check ob auf besetzte selection gezogen wurde
          } else if (dynamic_cast<Selection*>(child) == NULL) {
-//             qDebug("SHIIT");
+
              Accord *accord = static_cast<Accord*>(child);
              if(accord->isSelected()) {
-//                 qDebug((accord->getChord().toStdString().c_str()));
-                 qDebug() << "aSDasd";
                  draggedAkkord->setSelected(true);
                  draggedAkkord->move(child->pos());
                  draggedAkkord->show();
@@ -128,7 +126,7 @@ void DragWidget::dropEvent(QDropEvent *event)
                  draggedAkkord->setSelected(false);
                  draggedAkkord->show();
              }
-//             qDebug("GEHT");
+
          }
          //check ob ins leere gezogen wurde
          else{
@@ -154,7 +152,6 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
      Button *pressedButton = dynamic_cast<Button*>(childAt(event->pos()));
      if(pressedButton){
         moveChordTable();
-        qDebug() << "Es  ist ein Button";
         return;
      }
      Accord *child = dynamic_cast<Accord*>(childAt(event->pos()));
@@ -191,12 +188,9 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
 
 Selection* DragWidget::getSelection(Accord* accord){
     for(int i = 0; i < 4; i++){
-        QVariant var(i);
-        qDebug()<< i;
         Selection* selection = selections[i];
         if(selection->getAccord()){
             Accord* selectedAccord = selection->getAccord();
-            qDebug((accord->getChord().toStdString().c_str()));
             if (accord->getChord() == selectedAccord->getChord()){
                 return selection;
             }
@@ -211,7 +205,7 @@ void DragWidget::moveChordTable(){
 
 
     if(tableIsDown){
-        for(int i=0; i < 7; i++){
+        for(int i=0; i < 14; i++){
            akkords[i]->show();
         }
         chordTable->move(QPoint(92, 256));
@@ -219,11 +213,11 @@ void DragWidget::moveChordTable(){
         button->setButton(tableIsDown);
 
     }else{
-        for(int i=0; i < 7; i++){
+        for(int i=0; i < 14; i++){
            if(!akkords[i]->isSelected()){
                akkords[i]->hide();
-           }
-        }
+         }
+    }
         chordTable->move(QPoint(92, 656));
         tableIsDown = true;
         button->setButton(tableIsDown);
@@ -234,13 +228,17 @@ void DragWidget::highlightSelection(int slot){
 
     unselects[slot]->hide();
 
-    for(int i; i < 4; i++){
+    qDebug() << "why";
+
+    for(int i = 0; i < 4; i++){
+        qDebug() << i;
         if (i != slot){
            unselects[i]->show();
+           qDebug() << "warum zeige ich nichts an";
         }
     }
 
-    qDebug() << "BIn in der Methode";
+    qDebug() << "bin drin";
 }
 
 void DragWidget::loadAccords(){
@@ -253,6 +251,14 @@ void DragWidget::loadAccords(){
     akkordF = new Accord(this, "F", QPoint(896, 310));
     akkordG = new Accord(this, "G", QPoint(1024, 310));
 
+    akkordAm = new Accord(this, "Am",QPoint(256,438));
+    akkordHm = new Accord(this, "Hm", QPoint(384, 438));
+    akkordCm = new Accord(this, "Cm", QPoint(512, 438));
+    akkordDm = new Accord(this, "Dm", QPoint(640, 438));
+    akkordEm = new Accord(this, "Em", QPoint(768, 438));
+    akkordFm = new Accord(this, "Fm", QPoint(896, 438));
+    akkordGm = new Accord(this, "Gm", QPoint(1024, 438));
+
     akkords[0] = akkordA;
     akkords[1] = akkordH;
     akkords[2] = akkordC;
@@ -260,6 +266,13 @@ void DragWidget::loadAccords(){
     akkords[4] = akkordE;
     akkords[5] = akkordF;
     akkords[6] = akkordG;
+    akkords[7] = akkordAm;
+    akkords[8] = akkordHm;
+    akkords[9] = akkordCm;
+    akkords[10] = akkordDm;
+    akkords[11] = akkordEm;
+    akkords[12] = akkordFm;
+    akkords[13] = akkordGm;
 }
 
 void DragWidget::loadSelections(){

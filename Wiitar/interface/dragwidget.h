@@ -21,6 +21,13 @@ public:
     Accord* akkordG;
     Accord* akkordE;
     Accord* akkordF;
+    Accord* akkordAm;
+    Accord* akkordHm;
+    Accord* akkordCm;
+    Accord* akkordDm;
+    Accord* akkordGm;
+    Accord* akkordEm;
+    Accord* akkordFm;
     Accord* akkords[21];
     Accord* draggedAkkord;
     Selection* selection0;

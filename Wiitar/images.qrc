@@ -28,5 +28,19 @@
         <file>images/slot3selected.png</file>
         <file>images/unselected.png</file>
         <file>images/slot1selected.png</file>
+        <file>images/akkordAm.png</file>
+        <file>images/akkordHm.png</file>
+        <file>images/akkordCm.png</file>
+        <file>images/akkordDm.png</file>
+        <file>images/akkordEm.png</file>
+        <file>images/akkordFm.png</file>
+        <file>images/akkordGm.png</file>
+        <file>images/akkordGmselected.png</file>
+        <file>images/akkordFmselected.png</file>
+        <file>images/akkordEmselected.png</file>
+        <file>images/akkordDmselected.png</file>
+        <file>images/akkordCmselected.png</file>
+        <file>images/akkordHmselected.png</file>
+        <file>images/akkordAmselected.png</file>
     </qresource>
 </RCC>
