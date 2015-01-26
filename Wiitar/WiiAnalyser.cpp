@@ -240,7 +240,7 @@ void WiiAnalyser::checkForStrum(wiiinfo *info)
                                     (MAX_STRUM_FORCE - MIN_STRUM_FORCE);
                     emitValue = emitValue > 1 ? 1 : emitValue;
                 }
-                emit sendStrum(emitValue);
+                emit sendStrum(emitValue * -1);
                 lastStateN = 0;
             }
         }
