@@ -8,14 +8,16 @@ DragWidget::DragWidget(QWidget *parent, ChordManager *chordManager) :
     QFrame(parent)
 {
     this->chordManager = chordManager;
+
+    //set frame styles
     setMinimumSize(1280, 720);
     QPalette palette = this->palette();
     palette.setColor( backgroundRole(), QColor( 23, 23, 26 ) );
     setPalette( palette );
     setAutoFillBackground( true );
-   // setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
 
+    //load assets
     loadSelectedSlots();
     loadSelections();
     loadUnselects();
@@ -37,7 +39,6 @@ DragWidget::DragWidget(QWidget *parent, ChordManager *chordManager) :
     startscreen = new QLabel(this);
     loadingAnimation = new QMovie(":assets/images/startscreen.gif");
     startscreen->setMovie(loadingAnimation);
-//    startscreen->show();
     loadingAnimation->start();
 
     tableIsDown = false;
@@ -84,6 +85,7 @@ void DragWidget::dropEvent(QDropEvent *event)
          // Check auf was gedroppt wurde
          QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
 
+        //accord dragged not to selection or selected accord
          if (dynamic_cast<Selection*>(child) == NULL && dynamic_cast<Accord*>(child) == NULL){
              draggedAkkord->move(draggedAkkord->getStartPos());
              if(draggedAkkord->isSelected()){
@@ -97,20 +99,15 @@ void DragWidget::dropEvent(QDropEvent *event)
              return;
          }
 
-
-
-
-         QPixmap pixmap;
-         QPoint offset;
-         dataStream >> pixmap >> offset;
-
          //check ob auf selection gezogen wurde
          if(dynamic_cast<Accord*>(child) == NULL){
+
              draggedAkkord->move(child->pos());
              draggedAkkord->setSelected(true);
              draggedAkkord->show();
              Selection *selection = static_cast<Selection*>(child);
              selection->setAccord(draggedAkkord);
+
          //check ob auf besetzte selection gezogen wurde
          } else if (dynamic_cast<Selection*>(child) == NULL) {
 
@@ -138,8 +135,6 @@ void DragWidget::dropEvent(QDropEvent *event)
          else{
            draggedAkkord->show();
          }
-         //newIcon->setAttribute(Qt::WA_DeleteOnClose);
-
 
          if (event->source() == this) {
              event->setDropAction(Qt::MoveAction);
@@ -160,6 +155,8 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
         moveChordTable();
         return;
      }
+
+     //only accords can dragged
      Accord *child = dynamic_cast<Accord*>(childAt(event->pos()));
      if (!child) return;
 

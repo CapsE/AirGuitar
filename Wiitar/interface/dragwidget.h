@@ -51,7 +51,6 @@ public:
     QLabel* unselects[4];
     QLabel* selectedSlots[4];
     Button* button;
-    void highlightSelection(int slot);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
@@ -64,6 +63,8 @@ protected:
     void loadSelections();
     void loadSelectedSlots();
     void loadUnselects();
+    void highlightSelection(int slot);
+
 signals:
 
 public slots:

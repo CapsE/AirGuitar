@@ -27,8 +27,6 @@ bool Accord::isSelected(){
     return selected;
 }
 void Accord::setStartPos(QPoint start){
-//   startPos->setX(start.x());
-//   startPos->setY(start.y());
     startPos = start;
 }
 

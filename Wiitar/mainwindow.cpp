@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     chordManager = new ChordManager();
     chordManager->SetMidiMapper("CoolSoft VirtualMIDISynth");
-    chordManager->SetInstrument(27);
+    chordManager->SetInstrument(120);
 
     dragWidget = new DragWidget(this, chordManager);
 
@@ -82,11 +82,11 @@ void MainWindow::receiveChord(float direction)
 }
 
 void MainWindow::hide_logo(){
-    if(!(isConnected)){
-        timer -> start(2000);
-    }else{
+//    if(!(isConnected)){
+//        timer -> start(2000);
+//    }else{
         dragWidget->startscreen->hide();
-    }
+//    }
 }
 
 void MainWindow::setConnected(){
