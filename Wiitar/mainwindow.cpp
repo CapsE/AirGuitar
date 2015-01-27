@@ -8,9 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    showFullScreen();
+
     chordManager = new ChordManager();
-    chordManager->SetMidiMapper("Microsoft GS Wavetable Synth");
-    chordManager->SetInstrument(25);
+    chordManager->SetMidiMapper("CoolSoft VirtualMIDISynth");
+    chordManager->SetInstrument(27);
 
     dragWidget = new DragWidget(this, chordManager);
 
@@ -19,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(analyser, SIGNAL(sendStrum(float)), this, SLOT(receiveStrum(float)));
     connect(analyser, SIGNAL(sendChord(float)), this, SLOT(receiveChord(float)));
     connect(analyser, SIGNAL(sendConnect()), this, SLOT(setConnected()));
+
     dragWidget->show();
 
     timer = new QTimer(this);
@@ -88,4 +91,9 @@ void MainWindow::hide_logo(){
 
 void MainWindow::setConnected(){
     isConnected = true;
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event){
+    if(event->key() == Qt::Key_Escape){
+    this->close();}
 }
