@@ -14,9 +14,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     dragWidget = new DragWidget(this, chordManager);
 
+    isConnected = false;
+
     connect(analyser, SIGNAL(sendStrum(float)), this, SLOT(receiveStrum(float)));
     connect(analyser, SIGNAL(sendChord(float)), this, SLOT(receiveChord(float)));
+    connect(analyser, SIGNAL(sendConnect()), this, SLOT(setConnected()));
     dragWidget->show();
+
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(hide_logo()));
+    timer -> start(3000);
 }
 
 MainWindow::~MainWindow()
@@ -69,4 +76,16 @@ void MainWindow::receiveChord(float direction)
 
     dragWidget->highlightSelection(currentChord);
     qDebug() << "Slot:" << currentChord << "Direction:" << direction;
+}
+
+void MainWindow::hide_logo(){
+    if(!(isConnected)){
+        timer -> start(2000);
+    }else{
+        dragWidget->startscreen->hide();
+    }
+}
+
+void MainWindow::setConnected(){
+    isConnected = true;
 }

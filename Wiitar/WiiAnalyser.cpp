@@ -16,7 +16,7 @@ WiiAnalyser::WiiAnalyser()
 		accelerationR[i] = 0;
 		mainButton[i] = 0;
 		nunButton[i] = 0;
-	}
+    }
 }
 
 WiiAnalyser::~WiiAnalyser()
@@ -40,7 +40,7 @@ void WiiAnalyser::lightLED(int LEDindex)
 
 void WiiAnalyser::receiveConnect()
 {
-	emit sendConnect();
+    emit sendConnect();
 }
 
 void WiiAnalyser::receiveUpdate(wiiinfo *info)

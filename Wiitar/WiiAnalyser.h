@@ -21,7 +21,7 @@ private slots:
 public:
 	WiiAnalyser();
 	~WiiAnalyser();
-	bool isConnected();
+    bool isConnected();
     void lightLED(int);
 
 private:

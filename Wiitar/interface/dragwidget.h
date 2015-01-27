@@ -36,6 +36,8 @@ public:
     Selection* selection3;
     Selection* selections[4];
     ChordManager* chordManager;
+    QLabel* startscreen;
+    QMovie* loadingAnimation;
     QLabel* selectedSlot0;
     QLabel* selectedSlot1;
     QLabel* selectedSlot2;

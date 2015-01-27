@@ -22,56 +22,23 @@ public:
 //   void keyPressEvent(QKeyEvent *event);
     ~MainWindow();
 
+public slots:
+    void hide_logo();
+    void setConnected();
 
 private slots:
     void receiveStrum(float);
 
     void receiveChord(float);
 
-//    void on_volume_valueChanged(int value);
-
-//    void on_midichannel_valueChanged(int arg1);
-
-//    void on_comboBox_activated(const QString &arg1);
-
-//    void on_program_valueChanged(int arg1);
-
-
-
-//    void on_testButton_clicked();
-
-
-//    void on_testButton_2_clicked();
-//    void on_eChord_clicked();
-
-//    void on_fChord_clicked();
-
-//    void on_gChord_clicked();
-
-//    void on_aChord_clicked();
-
-//    void on_oneUp_clicked();
-
-//    void on_oneDown_clicked();
-
-//    void on_twoUp_clicked();
-
-//    void on_twoDown_clicked();
-
-//    void on_threeUp_clicked();
-
-//    void on_threeDown_clicked();
-
-//    void on_fourUp_clicked();
-
-//    void on_fourDown_clicked();
-
 private:
     WiiAnalyser *analyser;
     Ui::MainWindow *ui;
     ChordManager* chordManager;
+    QTimer* timer;
     int currentChord = 0;
     DragWidget* dragWidget;
+    bool isConnected;
 };
 
 #endif // MAINWINDOW_H

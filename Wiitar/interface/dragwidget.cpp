@@ -34,6 +34,12 @@ DragWidget::DragWidget(QWidget *parent, ChordManager *chordManager) :
 
     loadAccords();
 
+    startscreen = new QLabel(this);
+    loadingAnimation = new QMovie(":assets/images/startscreen.gif");
+    startscreen->setMovie(loadingAnimation);
+//    startscreen->show();
+    loadingAnimation->start();
+
     tableIsDown = false;
 
 }
@@ -231,17 +237,14 @@ void DragWidget::highlightSelection(int slot){
 
     unselects[slot]->hide();
 
-    qDebug() << "why";
-
     for(int i = 0; i < 4; i++){
-        qDebug() << i;
+
         if (i != slot){
            unselects[i]->show();
-           qDebug() << "warum zeige ich nichts an";
+
         }
     }
 
-    qDebug() << "bin drin";
 }
 
 void DragWidget::loadAccords(){

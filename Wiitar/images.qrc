@@ -42,5 +42,6 @@
         <file>images/akkordCmselected.png</file>
         <file>images/akkordHmselected.png</file>
         <file>images/akkordAmselected.png</file>
+        <file>images/startscreen.gif</file>
     </qresource>
 </RCC>
